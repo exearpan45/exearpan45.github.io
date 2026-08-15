@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arpan Goswami | Aspiring Web Developer</title>
+
+<style>
+
+/* =========================================================
+   ARPAN GOSWAMI - PERSONAL PORTFOLIO
+   Single HTML file
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #070810;
+    --bg2: #0d0f19;
+    --card: rgba(255,255,255,0.055);
+    --border: rgba(255,255,255,0.10);
+    --text: #f7f7ff;
+    --muted: #a6a9bd;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --cyan: #22d3ee;
+    --green: #34d399;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(139,92,246,.15), transparent 30%),
+        radial-gradient(circle at 90% 30%, rgba(34,211,238,.10), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(236,72,153,.10), transparent 35%),
+        var(--bg);
+
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .13;
+    animation: floating 12s ease-in-out infinite;
+}
+
+.orb1 {
+    background: var(--purple);
+    left: -100px;
+    top: 10%;
+}
+
+.orb2 {
+    background: var(--cyan);
+    right: -100px;
+    top: 40%;
+    animation-delay: -4s;
+}
+
+.orb3 {
+    background: var(--pink);
+    left: 40%;
+    bottom: -150px;
+    animation-delay: -8s;
+}
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translate(0,0);
+    }
+
+    50% {
+        transform: translate(40px,-30px);
+    }
+
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 18px 5%;
+
+    background: rgba(7,8,16,.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+nav {
+    max-width: 1150px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 7px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    font-size: .9rem;
+
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    background: rgba(139,92,246,.15);
+}
+
+.menu-btn {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 1.7rem;
+
+    cursor: pointer;
+}
+
+/* ================= GENERAL ================= */
+
+section {
+    width: min(1100px,90%);
+    margin: auto;
+    padding: 110px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title .small {
+    color: var(--cyan);
+    font-size: .8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem,5vw,3.2rem);
+    margin-top: 8px;
+}
+
+.section-title p {
+    color: var(--muted);
+    max-width: 620px;
+    margin: 12px auto;
+}
+
+.gradient {
+    background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--purple),
+        var(--pink)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+/* ================= HERO ================= */
+
+#home {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 140px;
+}
+
+.hero {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr .7fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 7px 13px;
+
+    border-radius: 100px;
+
+    background: rgba(52,211,153,.07);
+
+    border: 1px solid rgba(52,211,153,.25);
+
+    color: #8ff0c9;
+
+    font-size: .8rem;
+
+    margin-bottom: 20px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow: 0 0 12px var(--green);
+
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .3;
+    }
+
+}
+
+.hero h1 {
+    font-size: clamp(3rem,8vw,6.3rem);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 18px;
+}
+
+.hero h2 {
+    color: var(--muted);
+
+    font-size: clamp(1.2rem,3vw,1.8rem);
+
+    min-height: 45px;
+
+    font-weight: 500;
+}
+
+.hero p {
+    color: var(--muted);
+
+    max-width: 650px;
+
+    margin: 22px 0 30px;
+
+    font-size: 1.05rem;
+}
+
+/* ================= BUTTONS ================= */
+
+.buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.05);
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-size: .9rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255,255,255,.25);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
+
+.btn.primary {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--pink)
+        );
+
+    box-shadow:
+        0 8px 30px rgba(139,92,246,.25);
+}
+
+.btn.primary:hover {
+    box-shadow:
+        0 12px 40px rgba(139,92,246,.4);
+}
+
+/* ================= PROFILE ================= */
+
+.profile-card {
+    height: 380px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139,92,246,.15),
+            rgba(34,211,238,.04)
+        );
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(15px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.profile-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--cyan)
+        );
+
+    filter: blur(50px);
+
+    opacity: .3;
+}
+
+.profile-inner {
+    position: relative;
+
+    text-align: center;
+}
+
+.profile-photo {
+    width: 155px;
+    height: 155px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border: 3px solid rgba(255,255,255,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            #171923,
+            #282a3a
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 4rem;
+
+    box-shadow:
+        0 0 50px rgba(139,92,246,.25);
+}
+
+.profile-inner h3 {
+    margin-top: 18px;
+
+    font-size: 1.3rem;
+}
+
+.profile-inner p {
+    color: var(--muted);
+}
+
+/* ================= GLASS CARDS ================= */
+
+.glass-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+    transition: .35s;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(139,92,246,.3);
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.about-card {
+    cursor: pointer;
+}
+
+.about-card .icon {
+    font-size: 1.8rem;
+
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: var(--muted);
+
+    font-size: .9rem;
+}
+
+.about-details {
+    grid-column: 1/-1;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    transition: .5s;
+}
+
+.about-details.open {
+    max-height: 300px;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.about-details p {
+    color: var(--muted);
+
+    margin-top: 8px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 16px;
+}
+
+.skill-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    font-weight: bold;
+}
+
+.learning {
+    color: var(--cyan);
+
+    font-size: .7rem;
+
+    background:
+        rgba(34,211,238,.08);
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+}
+
+.skill-bar {
+    height: 6px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+
+    width: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    border-radius: 20px;
+
+    transition: width 1.5s;
+}
+
+.skill-card:nth-child(1)
+.skill-progress {
+    --width: 70%;
+}
+
+.skill-card:nth-child(2)
+.skill-progress {
+    --width: 55%;
+}
+
+.skill-card:nth-child(3)
+.skill-progress {
+    --width: 35%;
+}
+
+.skill-card:nth-child(4)
+.skill-progress {
+    --width: 55%;
+}
+
+.skill-card:nth-child(5)
+.skill-progress {
+    --width: 45%;
+}
+
+.skill-card:nth-child(6)
+.skill-progress {
+    --width: 50%;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 18px;
+}
+
+.project-number {
+    color: var(--purple);
+
+    font-size: .8rem;
+
+    font-weight: bold;
+}
+
+.project-card h3 {
+    margin: 8px 0;
+
+    font-size: 1.35rem;
+}
+
+.project-card p {
+    color: var(--muted);
+
+    font-size: .9rem;
+
+    margin-bottom: 15px;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+.tag {
+    font-size: .72rem;
+
+    padding: 5px 8px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border-radius: 7px;
+
+    color: #c8cbe0;
+}
+
+/* ================= EDUCATION ================= */
+
+.timeline {
+    position: relative;
+
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 20px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            var(--purple),
+            var(--cyan)
+        );
+
+    opacity: .4;
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 65px;
+
+    margin-bottom: 35px;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 10px;
+    top: 4px;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+
+    border: 3px solid var(--purple);
+
+    box-shadow:
+        0 0 20px rgba(139,92,246,.5);
+}
+
+.timeline-item span {
+    color: var(--cyan);
+
+    font-size: .8rem;
+}
+
+.timeline-item p {
+    color: var(--muted);
+
+    margin-top: 8px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box {
+    text-align: center;
+
+    padding: 55px 25px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.12),
+            rgba(34,211,238,.06)
+        );
+
+    border: 1px solid var(--border);
+}
+
+.contact-box h2 {
+    font-size: clamp(2rem,5vw,3.3rem);
+}
+
+.contact-box p {
+    color: var(--muted);
+
+    max-width: 600px;
+
+    margin: 12px auto 25px;
+}
+
+.socials {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    color: var(--muted);
+
+    font-size: .8rem;
+}
+
+/* ================= BACK TO TOP ================= */
+
+#topBtn {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(20,20,30,.85);
+
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 500;
+}
+
+#topBtn:hover {
+    background: var(--purple);
+
+    transform: translateY(-3px);
+}
+
+/* ================= REVEAL ================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity .8s,
+        transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        max-width: 450px;
+
+        margin: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 70px;
+
+        left: 5%;
+        right: 5%;
+
+        flex-direction: column;
+
+        padding: 12px;
+
+        background:
+            rgba(10,11,18,.97);
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 15px;
+
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: center;
+
+        display: block;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 85px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+}
+
+/* Reduced animation for users who prefer less motion */
+
+@media(prefers-reduced-motion:reduce) {
+
+    * {
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= BACKGROUND ================= -->
+
+<div class="background">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+</div>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<header>
+
+<nav>
+
+    <div class="logo">
+        ARPAN<span>.</span>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home" class="active">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="#skills">
+                Skills
+            </a>
+        </li>
+
+        <li>
+            <a href="#projects">
+                Projects
+            </a>
+        </li>
+
+        <li>
+            <a href="#education">
+                Education
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+<div class="hero">
+
+<div class="reveal">
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        Currently Learning Web Development
+
+    </div>
+
+
+    <h1>
+
+        ARPAN
+
+        <br>
+
+        <span class="gradient">
+            GOSWAMI
+        </span>
+
+    </h1>
+
+
+    <h2>
+        <span id="typing"></span>
+    </h2>
+
+
+    <p>
+
+        Class 11 student, JEE aspirant,
+        and aspiring web developer learning
+        coding and building my skills one project
+        at a time.
+
+        <br><br>
+
+        <strong>
+            #ArjunaJEE2027 🎯
+        </strong>
+
+    </p>
+
+
+    <div class="buttons">
+
+        <a href="#about" class="btn primary">
+            Explore Me ↓
+        </a>
+
+        <a href="#projects" class="btn">
+            My Projects
+        </a>
+
+        <a href="#skills" class="btn">
+            My Skills
+        </a>
+
+        <a href="#contact" class="btn">
+            Contact Me
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile-card reveal">
+
+<div class="profile-inner">
+
+    <!--
+        PROFILE PHOTO
+
+        Currently using a chill emoji.
+
+        Later we can replace this with your photo.
+    -->
+
+    <div class="profile-photo">
+        😎
+    </div>
+
+    <h3>
+        Arpan Goswami
+    </h3>
+
+    <p>
+        Aspiring Web Developer
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="section-title reveal">
+
+    <div class="small">
+        01 / About
+    </div>
+
+    <h2>
+        Get to know
+        <span class="gradient">
+            me
+        </span>
+    </h2>
+
+    <p>
+        A little more about me,
+        my journey and what I want to achieve.
+    </p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="glass-card about-card reveal"
+     onclick="showAbout('who')">
+
+    <div class="icon">
+        👨‍💻
+    </div>
+
+    <h3>
+        Who I Am
+    </h3>
+
+    <p>
+        Click to discover
+    </p>
+
+</div>
+
+
+<div class="glass-card about-card reveal"
+     onclick="showAbout('education')">
+
+    <div class="icon">
+        🎓
+    </div>
+
+    <h3>
+        My Education
+    </h3>
+
+    <p>
+        Click to discover
+    </p>
+
+</div>
+
+
+<div class="glass-card about-card reveal"
+     onclick="showAbout('goals')">
+
+    <div class="icon">
+        🚀
+    </div>
+
+    <h3>
+        My Goals
+    </h3>
+
+    <p>
+        Click to discover
+    </p>
+
+</div>
+
+
+<div class="glass-card about-card reveal"
+     onclick="showAbout('interests')">
+
+    <div class="icon">
+        💡
+    </div>
+
+    <h3>
+        My Interests
+    </h3>
+
+    <p>
+        Click to discover
+    </p>
+
+</div>
+
+
+<div class="glass-card about-details"
+     id="aboutDetails">
+
+    <h3 id="aboutTitle">
+        About Me
+    </h3>
+
+    <p id="aboutText">
+        Click one of the cards above.
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+<div class="section-title reveal">
+
+    <div class="small">
+        02 / Skills
+    </div>
+
+    <h2>
+        What I'm
+        <span class="gradient">
+            learning
+        </span>
+    </h2>
+
+    <p>
+        Skills I'm currently developing
+        as part of my coding journey.
+    </p>
+
+</div>
+
+
+<div class="skills-grid">
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            HTML
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            CSS
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            JavaScript
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            Python
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            Problem Solving
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+
+<div class="glass-card skill-card reveal">
+
+    <div class="skill-top">
+
+        <span class="skill-name">
+            Web Design
+        </span>
+
+        <span class="learning">
+            Learning
+        </span>
+
+    </div>
+
+    <div class="skill-bar">
+        <div class="skill-progress"></div>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<div class="section-title reveal">
+
+    <div class="small">
+        03 / Projects
+    </div>
+
+    <h2>
+        Things I'm
+        <span class="gradient">
+            building
+        </span>
+    </h2>
+
+    <p>
+        My projects will be added here as I build them.
+    </p>
+
+</div>
+
+
+<div class="projects-grid">
+
+
+<!-- PROJECT 1 -->
+
+<div class="glass-card project-card reveal">
+
+    <span class="project-number">
+        PROJECT 01
+    </span>
+
+    <h3>
+        Your Project Here
+    </h3>
+
+    <p>
+        Add your first real project description here.
+    </p>
+
+    <div class="tags">
+
+        <span class="tag">
+            Your Technology
+        </span>
+
+        <span class="tag">
+            Coming Soon
+        </span>
+
+    </div>
+
+    <a href="#"
+       class="btn primary"
+       onclick="comingSoon(event)">
+        View Project →
+    </a>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="glass-card project-card reveal">
+
+    <span class="project-number">
+        PROJECT 02
+    </span>
+
+    <h3>
+        Future Project
+    </h3>
+
+    <p>
+        A future project that I will add here.
+    </p>
+
+    <div class="tags">
+
+        <span class="tag">
+            Coming Soon
+        </span>
+
+    </div>
+
+    <a href="#"
+       class="btn primary"
+       onclick="comingSoon(event)">
+        View Project →
+    </a>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="glass-card project-card reveal">
+
+    <span class="project-number">
+        PROJECT 03
+    </span>
+
+    <h3>
+        Future Project
+    </h3>
+
+    <p>
+        Another project that will be added
+        as my coding journey continues.
+    </p>
+
+    <div class="tags">
+
+        <span class="tag">
+            Coming Soon
+        </span>
+
+    </div>
+
+    <a href="#"
+       class="btn primary"
+       onclick="comingSoon(event)">
+        View Project →
+    </a>
+
+</div>
+
+
+<!-- PROJECT 4 -->
+
+<div class="glass-card project-card reveal">
+
+    <span class="project-number">
+        PROJECT 04
+    </span>
+
+    <h3>
+        Future Project
+    </h3>
+
+    <p>
+        More projects coming soon.
+    </p>
+
+    <div class="tags">
+
+        <span class="tag">
+            Future
+        </span>
+
+    </div>
+
+    <a href="#"
+       class="btn primary"
+       onclick="comingSoon(event)">
+        View Project →
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education">
+
+<div class="section-title reveal">
+
+    <div class="small">
+        04 / Journey
+    </div>
+
+    <h2>
+        My
+        <span class="gradient">
+            journey
+        </span>
+    </h2>
+
+    <p>
+        My current academic and personal journey.
+    </p>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item reveal">
+
+    <div class="timeline-dot"></div>
+
+    <span>
+        CURRENT
+    </span>
+
+    <h3>
+        Class 11
+    </h3>
+
+    <p>
+        Currently studying in Class 11
+        and building my academic foundation.
+    </p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+    <div class="timeline-dot"></div>
+
+    <span>
+        CURRENT FOCUS
+    </span>
+
+    <h3>
+        JEE Preparation
+    </h3>
+
+    <p>
+        Preparing for the JEE journey
+        with the goal of cracking JEE.
+    </p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+    <div class="timeline-dot"></div>
+
+    <span>
+        LEARNING
+    </span>
+
+    <h3>
+        Web Development
+    </h3>
+
+    <p>
+        Learning HTML, CSS, JavaScript,
+        Python and building coding projects.
+    </p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+    <div class="timeline-dot"></div>
+
+    <span>
+        FUTURE
+    </span>
+
+    <h3>
+        Crack JEE
+    </h3>
+
+    <p>
+        My major current goal is to
+        crack JEE and continue developing
+        my skills alongside my studies.
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="contact-box reveal">
+
+<div class="section-title"
+     style="margin-bottom:20px;">
+
+    <div class="small">
+        05 / Contact
+    </div>
+
+    <h2>
+        Let's
+        <span class="gradient">
+            connect
+        </span>
+    </h2>
+
+</div>
+
+
+<p>
+
+    Want to connect or follow
+    my coding journey?
+
+</p>
+
+
+<div class="socials">
+
+
+<!-- EMAIL -->
+
+<a
+href="mailto:exe.arpan45@gmail.com"
+class="btn primary">
+
+    ✉ Email
+
+</a>
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="https://www.instagram.com/_arpan.x/"
+target="_blank"
+class="btn">
+
+    Instagram
+
+</a>
+
+
+<!-- GITHUB -->
+
+<a
+href="https://github.com/exearpan45"
+target="_blank"
+class="btn">
+
+    GitHub
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 All Rights Reserved by
+    <strong>
+        Arpan Goswami
+    </strong>
+
+</footer>
+
+
+<!-- ================= BACK TO TOP ================= -->
+
+<button id="topBtn">
+
+    ↑
+
+</button>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menuBtn.addEventListener("click", function() {
+
+    navLinks.classList.toggle("open");
+
+});
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("open");
+
+    });
+
+});
+
+
+/* ================= TYPING EFFECT ================= */
+
+const typing =
+document.getElementById("typing");
+
+
+const words = [
+
+    "Aspiring Web Developer",
+    "JEE Aspirant",
+    "Student & Coder",
+    "Future Developer"
+
+];
+
+
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+
+function typeEffect() {
+
+    const word =
+    words[wordIndex];
+
+
+    if (!deleting) {
+
+        typing.textContent =
+        word.substring(0,charIndex + 1);
+
+        charIndex++;
+
+
+        if (charIndex === word.length) {
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1300
+            );
+
+            return;
+        }
+
+    } else {
+
+        typing.textContent =
+        word.substring(0,charIndex - 1);
+
+        charIndex--;
+
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+
+            if (
+                wordIndex >= words.length
+            ) {
+
+                wordIndex = 0;
+
+            }
+
+        }
+
+    }
+
+
+    setTimeout(
+        typeEffect,
+        deleting ? 45 : 85
+    );
+
+}
+
+
+typeEffect();
+
+
+/* ================= ABOUT DATA ================= */
+
+const aboutData = {
+
+    who: {
+
+        title:
+        "👨‍💻 Who I Am",
+
+        text:
+        "I'm Arpan Goswami, a Class 11 student, JEE aspirant and aspiring web developer. I'm learning coding and web development while working toward my academic goals."
+
+    },
+
+
+    education: {
+
+        title:
+        "🎓 My Education",
+
+        text:
+        "I'm currently studying in Class 11 and preparing for the JEE journey. Alongside academics, I'm learning programming and web development."
+
+    },
+
+
+    goals: {
+
+        title:
+        "🚀 My Goals",
+
+        text:
+        "My biggest current goal is to crack JEE. I also want to keep improving my coding skills and eventually become a skilled web developer."
+
+    },
+
+
+    interests: {
+
+        title:
+        "💡 My Interests",
+
+        text:
+        "I enjoy cricket, science, artificial intelligence, technology and learning new things through coding."
+
+    }
+
+};
+
+
+function showAbout(type) {
+
+    const details =
+    document.getElementById(
+        "aboutDetails"
+    );
+
+    document.getElementById(
+        "aboutTitle"
+    ).textContent =
+    aboutData[type].title;
+
+
+    document.getElementById(
+        "aboutText"
+    ).textContent =
+    aboutData[type].text;
+
+
+    details.classList.add("open");
+
+
+    details.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "nearest"
+
+    });
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+function(entries) {
+
+    entries.forEach(function(entry) {
+
+        if (
+            entry.isIntersecting
+        ) {
+
+            entry.target.classList.add(
+                "visible"
+            );
+
+            observer.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+
+{
+    threshold: .12
+}
+
+);
+
+
+revealElements.forEach(
+function(element) {
+
+    observer.observe(element);
+
+});
+
+
+/* ================= SKILL BARS ================= */
+
+const skillObserver =
+new IntersectionObserver(
+
+function(entries) {
+
+    entries.forEach(function(entry) {
+
+        if (
+            entry.isIntersecting
+        ) {
+
+            const bar =
+            entry.target.querySelector(
+                ".skill-progress"
+            );
+
+
+            if (bar) {
+
+                const width =
+                getComputedStyle(bar)
+                .getPropertyValue(
+                    "--width"
+                );
+
+
+                bar.style.width =
+                width;
+
+            }
+
+
+            skillObserver.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+
+{
+    threshold: .4
+}
+
+);
+
+
+document
+.querySelectorAll(".skill-card")
+.forEach(function(skill) {
+
+    skillObserver.observe(skill);
+
+});
+
+
+/* ================= ACTIVE NAV ================= */
+
+const sections =
+document.querySelectorAll("section");
+
+
+const navItems =
+document.querySelectorAll(
+    ".nav-links a"
+);
+
+
+window.addEventListener(
+"scroll",
+function() {
+
+    let current = "";
+
+
+    sections.forEach(
+    function(section) {
+
+        const top =
+        section.offsetTop - 180;
+
+
+        if (
+            window.scrollY >= top
+        ) {
+
+            current =
+            section.id;
+
+        }
+
+    });
+
+
+    navItems.forEach(
+    function(item) {
+
+        item.classList.remove(
+            "active"
+        );
+
+
+        if (
+            item.getAttribute("href")
+            ===
+            "#" + current
+        ) {
+
+            item.classList.add(
+                "active"
+            );
+
+        }
+
+    });
+
+});
+
+
+/* ================= BACK TO TOP ================= */
+
+const topBtn =
+document.getElementById(
+    "topBtn"
+);
+
+
+window.addEventListener(
+"scroll",
+function() {
+
+    if (
+        window.scrollY > 500
+    ) {
+
+        topBtn.style.display =
+        "block";
+
+    } else {
+
+        topBtn.style.display =
+        "none";
+
+    }
+
+});
+
+
+topBtn.addEventListener(
+"click",
+function() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+
+/* ================= PROJECT PLACEHOLDER ================= */
+
+function comingSoon(event) {
+
+    event.preventDefault();
+
+    alert(
+        "This project is a placeholder. " +
+        "You can add your real project link later!"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
